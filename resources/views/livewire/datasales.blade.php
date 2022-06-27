@@ -23,11 +23,11 @@
                 <div class="col-10">
                     <div class="card">
                         <div class="card-header">
-                          <h5>Data Member</h5>
+                          <h5>Data Sales</h5>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                              <form action="" method="GET" enctype="multipart/form-data">
+                              <form action="{{ route('datasales-import-excel') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                <input type="file" name="file" class="form-control">
                                <br>

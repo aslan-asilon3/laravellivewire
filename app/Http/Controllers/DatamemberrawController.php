@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Imports\DatamemberrawImport;
+use App\Exports\DatamemberrawExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Imports\DatasalesImport;
-use App\Exports\DatasalesExport;
+use Illuminate\Support\Facades\DB;
+use App\Helpers\CleanNoHP;
 
-class DatasalesController extends Controller
+class DatamemberrawController extends Controller
 {
     //
     public function index()
     {
-        return view('datasales');
+        return view('datamemberraw');
     }
 
     public function import(Request $request) 
@@ -23,19 +25,24 @@ class DatasalesController extends Controller
         
     $path = $request->file('file');
 
-   
-    Excel::import(new DatasalesImport, $path); 
+    Excel::import(new DatamemberrawImport, $path); 
     
     return back()->with('success', 'Excel Data Sales Imported successfully.');
     }
 
     public function export() 
     {
-        return Excel::download(new DatasalesExport, 'Data-sales ' . now() . '.xlsx' );
+        return Excel::download(new DatamemberrawExport, 'Data Member Raw '.now() .'.xlsx');
 
         return redirect('/datasales')->with('success', 'Data Export Successfully!');
     }
 
+    public function updateExportProgress()
+    {
+        $this->exportFinished = $this->exportBatch->finished();
 
-    
+        if($this->exportFinished) {
+            $this->exporting = false;
+        }
+    }
 }

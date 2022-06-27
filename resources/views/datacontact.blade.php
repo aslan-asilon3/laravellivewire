@@ -10,6 +10,6 @@
 
 @section('content')
 
-      @livewire('datamember') 
+      @livewire('datacontact') 
     
 @endsection

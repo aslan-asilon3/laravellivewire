@@ -10,6 +10,6 @@
 
 @section('content')
 
-      @livewire('datamember') 
+      @livewire('datamemberraw') 
     
 @endsection
