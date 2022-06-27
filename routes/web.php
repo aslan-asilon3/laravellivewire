@@ -31,5 +31,5 @@ Route::post('/datamember/import-excel/', [\App\Http\Controllers\DatamemberContro
 
 
 route::get('/datasales', [\App\Http\Controllers\DatasalesController::class,'index'])->name('datasales-index');
-// Route::get('/datasales/export-excel/', [\App\Http\Livewire\Datasales::class, 'export'])->name('datasales-export-excel');
-// Route::post('/datasales/import-excel/', [\App\Http\Controllers\DatasalesController::class, 'import'])->name('datasales-import-excel');
+Route::get('/datasales/export-excel/', [\App\Http\Controllers\DatasalesController::class, 'export'])->name('datasales-export-excel');
+Route::get('/datasales/import-excel/', [\App\Http\Controllers\DatasalesController::class, 'import'])->name('datasales-import-excel');

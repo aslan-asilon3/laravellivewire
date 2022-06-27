@@ -16,7 +16,7 @@ class Datasales extends Component
     public function render()
     {
 
-        $this->datasaleses = Datasales::select('id_member','batch','poin','no_hp','tanggal','source','recipient','status_member','status_cek_is_member')->get();
+        $this->datasaleses = Datasaleses::select('id_member','batch','poin','no_hp','tanggal','source','recipient','status_member','status_cek_is_member')->get();
         return view('livewire.datasales');
     }
 

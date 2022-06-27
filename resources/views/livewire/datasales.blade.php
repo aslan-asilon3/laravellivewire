@@ -27,14 +27,14 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                              <form action="" method="POST" enctype="multipart/form-data">
+                              <form action="" method="GET" enctype="multipart/form-data">
                                 @csrf
                                <input type="file" name="file" class="form-control">
                                <br>
                                   <div class="btn-group" role="group">
                                       <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">Export</button>
                                       <div class="dropdown-menu">
-                                          <a class="dropdown-item" href="">Excel File</a>
+                                          <a class="dropdown-item" href="{{ route('datasales-export-excel') }}">Excel File</a>
                                           <a class="dropdown-item" href="">CSV File</a>
                                       </div>
                                   </div>
